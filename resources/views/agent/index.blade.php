@@ -1,5 +1,8 @@
-@extends('admin.dashboard')
-@section('admin')
+@extends('agent.dashboard')
+@section('agent')
+       
+   
+
 <main class="p-6">
 
     <h4 class="header-title">Welcome !</h4>

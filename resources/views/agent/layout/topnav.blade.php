@@ -224,14 +224,14 @@
                 <h6 class="py-2 px-5">Welcome !</h6>
 
                 <a class="flex items-center gap-x-3.5 py-2 px-5 text-sm hover:bg-gray-100 dark:hover:bg-slate-500/30"
-                    href="{{route('admin.profile')}}">
+                    href="{{route('agent.profile')}}">
                     <i data-lucide="user" class="w-4 h-4 me-2"></i>
                     <span>My Account</span>
                 </a>
                
                 <hr class="my-2 border-gray-200 dark:border-gray-700">
                 <a class="flex items-center gap-x-3.5 py-2 px-5 text-sm hover:bg-gray-100 dark:hover:bg-slate-500/30"
-                    href="{{route('admin.logout')}}">
+                    href="{{route('agent.logout')}}">
                     <i data-lucide="log-out" class="w-4 h-4 me-2"></i>
                     <span>Logout</span>
                 </a>

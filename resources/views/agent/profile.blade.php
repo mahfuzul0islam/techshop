@@ -1,5 +1,5 @@
-@extends('admin.dashboard')
-@section('admin')
+@extends('agent.dashboard')
+@section('agent')
     <main class="p-6">
         <div class="mt-14">
             <div class="border-b border-gray-200 dark:border-slate-500/70">
@@ -23,7 +23,7 @@
                                         <h5 class="text-base">Personal Information</h5>
                                     </div>
                                     <div class="relative mx-auto mt-6 h-32 w-32">
-                                        <img src="{{ !empty($admindata->photo) ? url('upload/profileimage/' . $admindata->photo) : url('upload/default.jpg') }}"
+                                        <img src="{{ !empty($agentdata->photo) ? url('upload/profileimage/' . $agentdata->photo) : url('upload/default.jpg') }}"
                                             alt="profile-image"
                                             class="rounded-full border border-gray-200 dark:border-gray-600 p-1">
                                         <i class="mdi mdi-star-circle absolute rounded-full text-center bottom-2.5 leading-6 end-0 h-6 w-6 text-lg bg-white text-success"
@@ -33,19 +33,19 @@
                                     <div class="p-6">
                                         <div class="mb-4">
                                             <strong>Full Name</strong>
-                                            <p>{{ $admindata->name }}</p>
+                                            <p>{{ $agentdata->name }}</p>
                                         </div>
                                         <div class="mb-4">
                                             <strong>Mobile</strong>
-                                            <p>{{ $admindata->phone }}</p>
+                                            <p>{{ $agentdata->phone }}</p>
                                         </div>
                                         <div class="mb-4">
                                             <strong>Email</strong>
-                                            <p>{{ $admindata->email }}</p>
+                                            <p>{{ $agentdata->email }}</p>
                                         </div>
                                         <div>
                                             <strong>Location</strong>
-                                            <p>{{ $admindata->address }}</p>
+                                            <p>{{ $agentdata->address }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -71,41 +71,41 @@
 
                                 <div class="p-6">
 
-                                    <form class="space-y-4" method='POST' action="{{ route('admin.store') }}"
+                                    <form class="space-y-4" method='POST' action="{{ route('agent.store') }}"
                                         enctype="multipart/form-data">
                                         @csrf
                                         <div>
                                             <label class="mt-1 mb-2" for="FullName">Full Name</label>
-                                            <input type="text" value="{{ $admindata->name }}" name="name"
+                                            <input type="text" value="{{ $agentdata->name }}" name="name"
                                                 id="FullName" class="form-input">
                                         </div>
                                         <div>
                                             <label class="mt-1 mb-2" for="Email">Email</label>
-                                            <input type="email" value="{{ $admindata->email }}" name="email"
+                                            <input type="email" value="{{ $agentdata->email }}" name="email"
                                                 id="Email" class="form-input">
                                         </div>
                                         <div>
                                             <label class="mt-1 mb-2" for="Username">Username</label>
-                                            <input type="text" value="{{ $admindata->username }}" name="username"
+                                            <input type="text" value="{{ $agentdata->username }}" name="username"
                                                 id="Username" class="form-input">
                                         </div>
                                         <div>
                                             <label class="mt-1 mb-2" for="phone">Phone</label>
-                                            <input type="text" value="{{ $admindata->phone }}" name="phone"
+                                            <input type="text" value="{{ $agentdata->phone }}" name="phone"
                                                 id="phone" class="form-input">
                                         </div>
                                         <div>
                                             <label class="mt-1 mb-2" for="address">Address</label>
-                                            <input type="text" value="{{ $admindata->address }}" name="address"
+                                            <input type="text" value="{{ $agentdata->address }}" name="address"
                                                 id="address" class="form-input">
                                         </div>
                                         <div>
                                             <label class="mt-1 mb-2" for="image">Photo</label>
-                                            <input type="file" value="{{ $admindata->photo }}" name="photo"
+                                            <input type="file" value="{{ $agentdata->photo }}" name="photo"
                                                 id="image" class="form-input border">
                                         </div>
                                         <div class="mt-2">
-                                            <img src="{{ !empty($admindata->photo) ? url('upload/profileimage/' . $admindata->photo) : url('upload/default.jpg') }}"
+                                            <img src="{{ !empty($agentdata->photo) ? url('upload/profileimage/' . $agentdata->photo) : url('upload/default.jpg') }}"
                                                 id="showImage" alt="profile-image"
                                                 class="rounded-full border border-gray-200 dark:border-gray-600 p-1">
                                         </div>
