@@ -33,15 +33,6 @@ class UserTableSeeder extends Seeder
                 'role'=>'user',
                 'status'=>'active'
             ],
-            //agent
-            [
-                'name' => 'Agent',
-                'username'=>'agent',
-                'email'=>'agent@gmail.com',
-                'password'=>Hash::make('1234'),
-                'role'=>'agent',
-                'status'=>'active'
-            ],
         ]);
     }
 }

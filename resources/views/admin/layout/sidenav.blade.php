@@ -59,7 +59,7 @@
                     <span class="badge bg-primary text-white rounded">11</span>
                 </a>
             </li> --}}
-            @if (Auth::user()->can('category manu'))
+            @if (Auth::user()->can('category.manu'))
                 <li class="menu-item">
                     <a href="javascript:void(0)" class="menu-link" data-hs-collapse="#menuComponents">
                         <i data-lucide="chevron-down-square" class="menu-icon"></i>
@@ -68,40 +68,45 @@
                     </a>
 
                     <ul class="sub-menu hidden" id="menuComponents">
+                        @if (Auth::user()->can('all.category'))
+                            <li class="menu-item">
+                                <a href="{{ route('show.categories') }}" class="menu-link">
+                                    <span class="menu-text">All Category</span>
+                                </a>
+                            </li>
+                        @endif
+                        @if (Auth::user()->can('add.category'))
+                            <li class="menu-item">
+                                <a href="{{ route('add.category') }}" class="menu-link">
+                                    <span class="menu-text">Add Category</span>
+                                </a>
+                            </li>
+                        @endif
+                    </ul>
+                </li>
+            @endif
+            @if (Auth::user()->can('tags.manu'))
+                <li class="menu-item">
+                    <a href="javascript:void(0)" class="menu-link" data-hs-collapse="#menuComponents">
+                        <i data-lucide="chevron-down-square" class="menu-icon"></i>
+                        <span class="menu-text"> Tags </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+
+                    <ul class="sub-menu hidden" id="menuComponents">
                         <li class="menu-item">
-                            <a href="{{ route('show.categories') }}" class="menu-link">
-                                <span class="menu-text">All Category</span>
+                            <a href="{{ route('show.tags') }}" class="menu-link">
+                                <span class="menu-text">All Tags</span>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="{{ route('add.category') }}" class="menu-link">
-                                <span class="menu-text">Add Category</span>
+                            <a href="{{ route('add.tags') }}" class="menu-link">
+                                <span class="menu-text">Add Tags</span>
                             </a>
                         </li>
                     </ul>
                 </li>
             @endif
-            <li class="menu-item">
-                <a href="javascript:void(0)" class="menu-link" data-hs-collapse="#menuComponents">
-                    <i data-lucide="chevron-down-square" class="menu-icon"></i>
-                    <span class="menu-text"> Tags </span>
-                    <span class="menu-arrow"></span>
-                </a>
-
-                <ul class="sub-menu hidden" id="menuComponents">
-                    <li class="menu-item">
-                        <a href="{{ route('show.tags') }}" class="menu-link">
-                            <span class="menu-text">All Tags</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{{ route('add.tags') }}" class="menu-link">
-                            <span class="menu-text">Add Tags</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
 
             <li class="menu-title">demo item</li>
             <li class="menu-item">

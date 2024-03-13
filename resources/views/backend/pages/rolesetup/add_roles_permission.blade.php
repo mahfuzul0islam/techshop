@@ -56,7 +56,7 @@
                                                     </div>
 
                                                     @php
-                                                        $permissions = App\Models\User::getpermissionGroupName($group->group_name);
+                                                        $permissions = App\Models\User::getpermissionByGroupName($group->group_name);
                                                     @endphp
 
 

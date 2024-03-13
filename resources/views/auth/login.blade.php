@@ -1,47 +1,154 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="en">
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+<!-- Mirrored from coderthemes.com/simple-tw/layouts/pages-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Jan 2024 13:18:38 GMT -->
+
+<head>
+    <meta charset="utf-8">
+    <title>admin | Simple - Tailwind HTML Admin Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        content="Simple - Tailwind HTML Admin Dashboard Template, A fully featured admin theme which can be used to build CRM, CMS, etc."
+        name="description">
+    <meta content="coderthemes" name="author">
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ asset('admin/assets/images/favicon.ico') }}">
+
+
+
+    <!-- App css -->
+    <link href="{{ asset('admin/assets/css/app.min.css') }}" rel="stylesheet" type="text/css">
+
+    <!-- Icons css -->
+    <link href="{{ asset('admin/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css">
+
+    <!-- Theme Config Js -->
+    <script src="{{ asset('admin/assets/js/config.js') }}"></script>
+    {{-- jquery --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    {{-- toster --}}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
+    {{-- custom css  --}}
+    <link href="{{ asset('admin/assets/css/style.css') }}" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="relative bg-cover bg-center">
+        <div class="relative flex flex-col my-12 pt-12">
+            <div class="flex justify-center">
+                <div class="px-4">
+                    <div class="card overflow-hidden">
+                        <div class="p-9">
+
+                            <div class="mb-6 mt-2">
+                                <a href="index.html">
+                                    <img src="{{ asset('admin/assets/images/logo-dark.png') }}" alt=""
+                                        class="h-8 mx-auto block dark:hidden">
+                                    <img src="{{ asset('admin/assets/images/logo-light.png') }}" alt=""
+                                        class="h-8 mx-auto hidden dark:block">
+                                </a>
+                            </div>
+
+                            <div class="mb-3 mt-2">
+                                <h1>just loging with</h1>
+                                <h1>email : admin@gmail.com</h1>
+                                <h1>password : password</h1>
+                            </div>
+
+                            <form action="{{ route('login') }}" enctype="multipart/form-data" method="POST"
+                                class="xl:w-[30rem] sm:w-96 py-2">
+                                @csrf
+                                <div class="mb-4">
+                                    <label class="mt-1 mb-2" for="email">Email address</label>
+                                    <input class="form-input" type="email" name="email" id="email"
+                                        required="">
+                                </div>
+
+                                <div class="mb-4">
+                                    <div class="flex items-center justify-between">
+                                        <label class="mt-1 mb-2" for="password">Password</label>
+                                    </div>
+                                    <input type="password" id="password" name="password" class="form-input"
+                                        placeholder="Enter your password">
+                                </div>
+                                <div class="text-center mb-2">
+                                    <button class="btn bg-primary w-full text-white" type="submit"> Sign In </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-6">
+                        <p>Don't have an account?
+                            <a href="pages-register.html" class="ms-1 font-bold">
+                                Sign Up</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+    <script src="{{ asset('admin/assets/libs/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/libs/lucide/umd/lucide.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/libs/preline/preline.js') }}"></script>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+    <!-- App Js -->
+    <script src="{{ asset('admin/assets/js/app.js') }}"></script>
+    <script src="{{ asset('admin/assets/libs/morris.js/morris.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/libs/raphael/raphael.min.js') }}"></script>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    <!-- init js -->
+    <script src="{{ asset('admin/assets/js/pages/dashboard.init.js') }}"></script>
+
+    {{-- toster --}}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="{{ asset('admin/assets/js/customcode.js') }}"></script>
+</body>
+
+
+<!-- Mirrored from coderthemes.com/simple-tw/layouts/pages-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Jan 2024 13:18:38 GMT -->
+
+</html>

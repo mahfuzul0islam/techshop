@@ -57,19 +57,19 @@ Route::middleware(['auth', 'roles:agent'])->group(function () {
 Route::middleware(['auth', 'roles:admin'])->group(function () {
     //this is admin category part
     Route::controller(CategoriController::class)->group(function () {
-        Route::get('/all/categories', 'ShowCategories')->name('show.categories')->middleware('permission:all category');
-        Route::get('/add/categories', 'AddCategory')->name('add.category');
-        Route::post('/store/categories', 'StoreCategory')->name('store.category');
-        Route::get('/edit/categories/{id}', 'EditCategory')->name('edit.category');
-        Route::post('/store/categories/{id}', 'UpdateCategory')->name('update.category');
-        Route::get('/delete/categories/{id}', 'DeleteCategory')->name('delete.category');
+        Route::get('/all/categories', 'ShowCategories')->name('show.categories')->middleware('permission:all.category');
+        Route::get('/add/categories', 'AddCategory')->name('add.category')->middleware('permission:add.category');
+        Route::post('/store/categories', 'StoreCategory')->name('store.category')->middleware('permission:add.category');
+        Route::get('/edit/categories/{id}', 'EditCategory')->name('edit.category')->middleware('permission:edit.category');
+        Route::post('/update/categories/{id}', 'UpdateCategory')->name('update.category')->middleware('permission:edit.category');
+        Route::get('/delete/categories/{id}', 'DeleteCategory')->name('delete.category')->middleware('permission:delete.category');
     });
     //this is tags part
     Route::controller(CategoriController::class)->group(function () {
-        Route::get('/all/tags', 'ShowTags')->name('show.tags');
-        Route::get('/add/tags', 'AddTags')->name('add.tags');
-        Route::post('/store/tags', 'StoreTags')->name('store.tags');
-        Route::get('/delete/tags/{id}', 'DeleteTags')->name('delete.tag');
+        Route::get('/all/tags', 'ShowTags')->name('show.tags')->middleware('permission:all.tags');
+        Route::get('/add/tags', 'AddTags')->name('add.tags')->middleware('permission:add.tags');
+        Route::post('/store/tags', 'StoreTags')->name('store.tags')->middleware('permission:add.tags');
+        Route::get('/delete/tags/{id}', 'DeleteTags')->name('delete.tag')->middleware('permission:delete.tags');
     });
 
     //this is  permission

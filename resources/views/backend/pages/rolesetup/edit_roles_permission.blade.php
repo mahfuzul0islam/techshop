@@ -18,8 +18,8 @@
 
                                 <div class="p-6">
 
-                                    <form class="space-y-4" method="POST" action="{{ route('admin.roles.update',$role->id) }}"
-                                        enctype="multipart/form-data">
+                                    <form class="space-y-4" method="POST"
+                                        action="{{ route('admin.roles.update', $role->id) }}" enctype="multipart/form-data">
                                         @csrf
                                         <div>
                                             <label class="mt-1 mb-2" for="name">Role Name</label>
@@ -39,7 +39,7 @@
                                                 @foreach ($permission_group as $group)
                                                     <div class="col-3">
                                                         @php
-                                                            $permissions = App\Models\User::getpermissionGroupName(
+                                                            $permissions = App\Models\User::getpermissionByGroupName(
                                                                 $group->group_name,
                                                             );
                                                         @endphp
